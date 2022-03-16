@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define WixDemo_TargetDir=$(var.WixDemo.TargetDir)?><?define Project2_TargetDir=$(var.Project2.TargetDir)?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<?define WixDemo_TargetDir=$(var.WixDemo.TargetDir)?>
+	
 	<Product Id="*" Name="WixInstaller" Language="1033" Version="1.0.0.0" Manufacturer="Wix" UpgradeCode="90480fb9-83ba-4df3-b6f9-dcca3b50abbb">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
@@ -14,8 +16,8 @@
 
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="WixInstaller" />
+			<Directory Id="ProgramFilesFolder" Name="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="INSTALLFOLDER" />
 			</Directory>
 		</Directory>
 	</Fragment>
@@ -29,8 +31,142 @@
 		</ComponentGroup>
 	</Fragment>
 	<Fragment>
-	  <ComponentGroup Id="ProgramFilesFolder_files" Directory="ProgramFilesFolder">
-	    
+	  <ComponentGroup Id="ProgramFilesFolder_files" Directory="INSTALLFOLDER">
+	  <Component Id="appsettings.Development.json" Guid="2fe85ef1-6599-4c28-81e7-d5b5dc049684">
+	    <File Id="appsettings.Development.json" Name="appsettings.Development.json" Source="$(var.WixDemo_TargetDir)appsettings.Development.json" />
+	  </Component>
+	  <Component Id="System.Text.Encodings.Web.dll" Guid="33873d63-3040-4abb-809b-5c199e3aaf7b">
+	    <File Id="System.Text.Encodings.Web.dll" Name="System.Text.Encodings.Web.dll" Source="$(var.WixDemo_TargetDir)System.Text.Encodings.Web.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Options.dll" Guid="f4bc7f1a-c678-4610-9f04-eb7f87087629">
+	    <File Id="Microsoft.Extensions.Options.dll" Name="Microsoft.Extensions.Options.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Options.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.FileProviders.Physical.dll" Guid="7d13b5e3-a73b-452e-bb20-1934579bd5c4">
+	    <File Id="Microsoft.Extensions.FileProviders.Physical.dll" Name="Microsoft.Extensions.FileProviders.Physical.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.FileProviders.Physical.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.FileSystemGlobbing.dll" Guid="7bb2242b-8727-4d26-b929-42a3a14402f8">
+	    <File Id="Microsoft.Extensions.FileSystemGlobbing.dll" Name="Microsoft.Extensions.FileSystemGlobbing.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.FileSystemGlobbing.dll" />
+	  </Component>
+	  <Component Id="System.Diagnostics.DiagnosticSource.dll" Guid="a64f2bda-5239-458e-aaa2-18f7c222799f">
+	    <File Id="System.Diagnostics.DiagnosticSource.dll" Name="System.Diagnostics.DiagnosticSource.dll" Source="$(var.WixDemo_TargetDir)System.Diagnostics.DiagnosticSource.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.DependencyInjection.dll" Guid="624e0520-1c36-41ea-a585-4bedab404f17">
+	    <File Id="Microsoft.Extensions.DependencyInjection.dll" Name="Microsoft.Extensions.DependencyInjection.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.DependencyInjection.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Logging.dll" Guid="a87beff8-3ef1-4d07-a70b-62f8725c28bd">
+	    <File Id="Microsoft.Extensions.Logging.dll" Name="Microsoft.Extensions.Logging.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Logging.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Configuration.dll" Guid="bb384bcc-1576-4df5-ba7b-beebfb7e886c">
+	    <File Id="Microsoft.Extensions.Configuration.dll" Name="Microsoft.Extensions.Configuration.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Configuration.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Configuration.FileExtensions.dll" Guid="2757584f-e8e2-4427-a2c8-4a069e182021">
+	    <File Id="Microsoft.Extensions.Configuration.FileExtensions.dll" Name="Microsoft.Extensions.Configuration.FileExtensions.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Configuration.FileExtensions.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Configuration.Binder.dll" Guid="43fb596e-c56e-4ea8-9eb9-2ffbb6986cc1">
+	    <File Id="Microsoft.Extensions.Configuration.Binder.dll" Name="Microsoft.Extensions.Configuration.Binder.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Configuration.Binder.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Configuration.EnvironmentVariables.dll" Guid="20444868-a2e4-4f7d-891e-33fea4d7e5e9">
+	    <File Id="Microsoft.Extensions.Configuration.EnvironmentVariables.dll" Name="Microsoft.Extensions.Configuration.EnvironmentVariables.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Configuration.CommandLine.dll" Guid="8316ee8c-c064-4e12-bb62-e1ae5af1b9e9">
+	    <File Id="Microsoft.Extensions.Configuration.CommandLine.dll" Name="Microsoft.Extensions.Configuration.CommandLine.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Configuration.CommandLine.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Configuration.Json.dll" Guid="75db0b94-a34d-4782-9d5e-a6494836e3e8">
+	    <File Id="Microsoft.Extensions.Configuration.Json.dll" Name="Microsoft.Extensions.Configuration.Json.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Configuration.Json.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Configuration.UserSecrets.dll" Guid="bae81d27-4af2-486e-b811-4843fcee40be">
+	    <File Id="Microsoft.Extensions.Configuration.UserSecrets.dll" Name="Microsoft.Extensions.Configuration.UserSecrets.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Configuration.UserSecrets.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Logging.EventLog.dll" Guid="743a789c-02e3-43f3-93aa-34e3ccc7bdbd">
+	    <File Id="Microsoft.Extensions.Logging.EventLog.dll" Name="Microsoft.Extensions.Logging.EventLog.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Logging.EventLog.dll" />
+	  </Component>
+	  <Component Id="System.Diagnostics.EventLog.dll" Guid="4f195a6a-0861-4eb6-9d52-0e75b882ecf9">
+	    <File Id="System.Diagnostics.EventLog.dll" Name="System.Diagnostics.EventLog.dll" Source="$(var.WixDemo_TargetDir)System.Diagnostics.EventLog.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Logging.Configuration.dll" Guid="27188007-3df9-434a-b337-81a8ce3d1aeb">
+	    <File Id="Microsoft.Extensions.Logging.Configuration.dll" Name="Microsoft.Extensions.Logging.Configuration.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Logging.Configuration.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Options.ConfigurationExtensions.dll" Guid="6e9ddb1f-fda7-4ff2-ad8d-eb922b0436bb">
+	    <File Id="Microsoft.Extensions.Options.ConfigurationExtensions.dll" Name="Microsoft.Extensions.Options.ConfigurationExtensions.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Logging.Console.dll" Guid="8332f5b5-f30c-410c-9b9f-458933d40ce4">
+	    <File Id="Microsoft.Extensions.Logging.Console.dll" Name="Microsoft.Extensions.Logging.Console.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Logging.Console.dll" />
+	  </Component>
+	  <Component Id="System.Text.Json.dll" Guid="9cf16d69-84d3-4df6-beeb-557387a73f06">
+	    <File Id="System.Text.Json.dll" Name="System.Text.Json.dll" Source="$(var.WixDemo_TargetDir)System.Text.Json.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Logging.Debug.dll" Guid="8058342c-e716-4c9a-be6c-e52e359fd0e1">
+	    <File Id="Microsoft.Extensions.Logging.Debug.dll" Name="Microsoft.Extensions.Logging.Debug.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Logging.Debug.dll" />
+	  </Component>
+	  <Component Id="System.Runtime.CompilerServices.Unsafe.dll" Guid="a714f8da-e7d4-46da-9d0e-07459b187efb">
+	    <File Id="System.Runtime.CompilerServices.Unsafe.dll" Name="System.Runtime.CompilerServices.Unsafe.dll" Source="$(var.WixDemo_TargetDir)System.Runtime.CompilerServices.Unsafe.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.FileProviders.Abstractions.dll" Guid="5b448b6d-8d56-4c8c-9a29-43c4a56aa87a">
+	    <File Id="Microsoft.Extensions.FileProviders.Abstractions.dll" Name="Microsoft.Extensions.FileProviders.Abstractions.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.FileProviders.Abstractions.dll" />
+	  </Component>
+	  <Component Id="appsettings.json" Guid="fbdfca90-12ea-4a44-8ae0-426e0b2aa52b">
+	    <File Id="appsettings.json" Name="appsettings.json" Source="$(var.WixDemo_TargetDir)appsettings.json" />
+	  </Component>
+	  <Component Id="WixLogConfig.json" Guid="c01861fd-caff-4199-9645-7705bb6b196c">
+	    <File Id="WixLogConfig.json" Name="WixLogConfig.json" Source="$(var.WixDemo_TargetDir)WixLogConfig.json" />
+	  </Component>
+	  <Component Id="WixLogConfigLogConfig.json" Guid="5e65714e-3499-4f90-839e-1e2e27a247a0">
+	    <File Id="WixLogConfigLogConfig.json" Name="WixLogConfigLogConfig.json" Source="$(var.WixDemo_TargetDir)WixLogConfigLogConfig.json" />
+	  </Component>
+	  <Component Id="WixLogConfigLogConfigLLC.json" Guid="735248f0-d65c-4320-a7e3-4a3685fcdf5f">
+	    <File Id="WixLogConfigLogConfigLLC.json" Name="WixLogConfigLogConfigLLC.json" Source="$(var.WixDemo_TargetDir)WixLogConfigLogConfigLLC.json" />
+	  </Component>
+	  <Component Id="WixLogConfigLogConfigLocal.json" Guid="bbc5fe59-1a57-480c-a6ea-8d9abb767cc3">
+	    <File Id="WixLogConfigLogConfigLocal.json" Name="WixLogConfigLogConfigLocal.json" Source="$(var.WixDemo_TargetDir)WixLogConfigLogConfigLocal.json" />
+	  </Component>
+	  <Component Id="WixLogConfigLogConfigProduction.json" Guid="15a48f5c-e446-4124-8b7b-3211c73b100f">
+	    <File Id="WixLogConfigLogConfigProduction.json" Name="WixLogConfigLogConfigProduction.json" Source="$(var.WixDemo_TargetDir)WixLogConfigLogConfigProduction.json" />
+	  </Component>
+	  <Component Id="WixLogConfigLogConfigStaged.json" Guid="96ed6caf-c67e-4799-842e-91d96b0b3cd3">
+	    <File Id="WixLogConfigLogConfigStaged.json" Name="WixLogConfigLogConfigStaged.json" Source="$(var.WixDemo_TargetDir)WixLogConfigLogConfigStaged.json" />
+	  </Component>
+	  <Component Id="WixLogConfigLogConfigTEST.json" Guid="69014a51-f632-413b-a940-ebe659dad906">
+	    <File Id="WixLogConfigLogConfigTEST.json" Name="WixLogConfigLogConfigTEST.json" Source="$(var.WixDemo_TargetDir)WixLogConfigLogConfigTEST.json" />
+	  </Component>
+	  <Component Id="WixDemo.runtimeconfig.json" Guid="8c02a893-c151-420e-8586-6b94f8176b75">
+	    <File Id="WixDemo.runtimeconfig.json" Name="WixDemo.runtimeconfig.json" Source="$(var.WixDemo_TargetDir)WixDemo.runtimeconfig.json" />
+	  </Component>
+	  <Component Id="WixDemo.dll" Guid="75879b6d-311b-43fe-97d5-356db1455f03">
+	    <File Id="WixDemo.dll" Name="WixDemo.dll" Source="$(var.WixDemo_TargetDir)WixDemo.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Hosting.Abstractions.dll" Guid="23293e1c-cfa8-4ab4-9c0a-3d56e69234ac">
+	    <File Id="Microsoft.Extensions.Hosting.Abstractions.dll" Name="Microsoft.Extensions.Hosting.Abstractions.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Hosting.Abstractions.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Configuration.Abstractions.dll" Guid="c6b23f9c-259f-43e4-a014-d6a1e5bfd126">
+	    <File Id="Microsoft.Extensions.Configuration.Abstractions.dll" Name="Microsoft.Extensions.Configuration.Abstractions.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Configuration.Abstractions.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Guid="f745e888-436a-4b93-ae5e-9d88bfacc13e">
+	    <File Id="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Name="Microsoft.Extensions.DependencyInjection.Abstractions.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+	  </Component>
+	  <Component Id="Swashbuckle.AspNetCore.SwaggerGen.dll" Guid="f6d0a59d-a5c9-4083-aa5c-5964b1959c80">
+	    <File Id="Swashbuckle.AspNetCore.SwaggerGen.dll" Name="Swashbuckle.AspNetCore.SwaggerGen.dll" Source="$(var.WixDemo_TargetDir)Swashbuckle.AspNetCore.SwaggerGen.dll" />
+	  </Component>
+	  <Component Id="Swashbuckle.AspNetCore.SwaggerUI.dll" Guid="92609505-20ec-49d6-b525-a1f00837aae7">
+	    <File Id="Swashbuckle.AspNetCore.SwaggerUI.dll" Name="Swashbuckle.AspNetCore.SwaggerUI.dll" Source="$(var.WixDemo_TargetDir)Swashbuckle.AspNetCore.SwaggerUI.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Logging.Abstractions.dll" Guid="589931e1-100d-45f0-b5a2-2ee91a70ba16">
+	    <File Id="Microsoft.Extensions.Logging.Abstractions.dll" Name="Microsoft.Extensions.Logging.Abstractions.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Logging.Abstractions.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Hosting.dll" Guid="b22f0e8a-6b7c-4824-9725-940258c91183">
+	    <File Id="Microsoft.Extensions.Hosting.dll" Name="Microsoft.Extensions.Hosting.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Hosting.dll" />
+	  </Component>
+	  <Component Id="Swashbuckle.AspNetCore.Swagger.dll" Guid="a82c5944-68d0-495f-8bcf-fd376bf1da55">
+	    <File Id="Swashbuckle.AspNetCore.Swagger.dll" Name="Swashbuckle.AspNetCore.Swagger.dll" Source="$(var.WixDemo_TargetDir)Swashbuckle.AspNetCore.Swagger.dll" />
+	  </Component>
+	  <Component Id="Microsoft.OpenApi.dll" Guid="75260f62-1073-4c52-9dad-6bf029e7260d">
+	    <File Id="Microsoft.OpenApi.dll" Name="Microsoft.OpenApi.dll" Source="$(var.WixDemo_TargetDir)Microsoft.OpenApi.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Primitives.dll" Guid="0a0f905d-a09c-48e5-ba38-db3e36b6fa06">
+	    <File Id="Microsoft.Extensions.Primitives.dll" Name="Microsoft.Extensions.Primitives.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Primitives.dll" />
+	  </Component>
+	  <Component Id="Microsoft.Extensions.Logging.EventSource.dll" Guid="345c0e4f-a815-4d37-ae65-73e09d67ac2e">
+	    <File Id="Microsoft.Extensions.Logging.EventSource.dll" Name="Microsoft.Extensions.Logging.EventSource.dll" Source="$(var.WixDemo_TargetDir)Microsoft.Extensions.Logging.EventSource.dll" />
+	  </Component>
 	  </ComponentGroup>
-	</Fragment>
+  </Fragment>
 </Wix>
